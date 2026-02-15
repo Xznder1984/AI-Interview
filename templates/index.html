@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Mock Interview - Practice Real Interviews</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🎯 AI Mock Interview</h1>
+                <p>Practice interviews with lifelike AI professionals</p>
+                <div id="api-status" class="api-status" style="display: none;">
+                    <span class="api-indicator"></span>
+                    <span class="api-text">API Key Active</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Login Section -->
+            <div id="login-section" class="section active">
+                <div class="login-container">
+                    <h2>Get Your OpenRouter API Key</h2>
+                    <p class="login-description">
+                        This app uses OpenRouter to power realistic interviews. You need your own API key to use it.
+                    </p>
+                    
+                    <div class="setup-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Sign Up (Free)</h3>
+                                <a href="https://openrouter.ai/" target="_blank" class="btn btn-secondary">
+                                    Visit OpenRouter.ai
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Create API Key</h3>
+                                <a href="https://openrouter.ai/keys" target="_blank" class="btn btn-secondary">
+                                    Get Your API Key
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Paste Here</h3>
+                                <textarea id="api-key-input" 
+                                         placeholder="Paste your OpenRouter API key here (sk-or-v1-...)" 
+                                         class="api-key-textarea"></textarea>
+                                <button id="login-btn" class="btn btn-primary">Start Interviewing</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <h3>💡 Why Your Own API Key?</h3>
+                        <ul>
+                            <li>Full control over your costs</li>
+                            <li>No usage limits from our side</li>
+                            <li>Your data stays private</li>
+                            <li>Free tier available</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Welcome Section -->
+            <div id="welcome-section" class="section">
+                <h2>Select Your Interview Type</h2>
+                <p>Choose which type of interview you'd like to practice:</p>
+                
+                <div id="personas-container" class="personas-grid">
+                    <!-- Personas will be loaded here -->
+                    <div class="loading">Loading interview types...</div>
+                </div>
+
+                <div class="info-box">
+                    <h3>💡 How It Works</h3>
+                    <ol>
+                        <li>Select an interview type that matches your goal</li>
+                        <li>Respond naturally - like you're in a real interview</li>
+                        <li>Get real-time feedback from your AI interviewer</li>
+                        <li>Receive detailed performance analysis at the end</li>
+                    </ol>
+                </div>
+
+                <div class="logout-container">
+                    <button id="logout-btn" class="btn btn-secondary">Use Different API Key</button>
+                </div>
+            </div>
+
+            <!-- Interview Section -->
+            <div id="interview-section" class="section">
+                <div class="interview-header">
+                    <div class="interviewer-info">
+                        <h2 id="interviewer-name">Interviewer</h2>
+                        <p id="interviewer-title">Title</p>
+                        <p id="interviewer-company">Company</p>
+                    </div>
+                    <div class="interview-controls">
+                        <div class="timer" id="timer">00:00</div>
+                        <button id="end-interview-btn" class="btn btn-danger">End Interview</button>
+                    </div>
+                </div>
+
+                <div class="interview-chat">
+                    <div id="chat-messages" class="chat-messages">
+                        <!-- Messages will appear here -->
+                    </div>
+                </div>
+
+                <div class="interview-input">
+                    <textarea id="response-input" placeholder="Type your response here and press Enter or click Send..." rows="3"></textarea>
+                    <button id="send-response-btn" class="btn btn-primary">Send Response</button>
+                    <small>Tip: Give detailed, thoughtful responses for better feedback</small>
+                </div>
+            </div>
+
+            <!-- Feedback Section -->
+            <div id="feedback-section" class="section">
+                <h2>Interview Feedback</h2>
+                
+                <div class="feedback-summary">
+                    <div class="summary-item">
+                        <h3>Interview Duration</h3>
+                        <p id="feedback-duration">--</p>
+                    </div>
+                    <div class="summary-item">
+                        <h3>Exchanges</h3>
+                        <p id="feedback-message-count">--</p>
+                    </div>
+                </div>
+
+                <div class="feedback-content">
+                    <div id="feedback-display" class="feedback-text">
+                        <!-- Feedback will be displayed here -->
+                    </div>
+                </div>
+
+                <div class="transcript-section">
+                    <h3>Interview Transcript</h3>
+                    <div id="transcript-display" class="transcript">
+                        <!-- Full conversation transcript -->
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="new-interview-btn" class="btn btn-primary">Start New Interview</button>
+                    <button id="download-feedback-btn" class="btn btn-secondary">Download Feedback</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for loading -->
+    <div id="loading-modal" class="modal">
+        <div class="modal-content">
+            <div class="spinner"></div>
+            <p id="loading-text">Loading...</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
