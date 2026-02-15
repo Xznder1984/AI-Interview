@@ -1,103 +1,103 @@
-# 🎯 AI Mock Interview
+# AI Mock Interview
 
 **Practice real interviews with AI-powered professional interviewers**
 
 Get live feedback, improve your skills, and ace your next interview.
 
-## ✨ Features
+## Features
 
-- **5 Interview Personas**: MIT Admissions, Finance Broker, Tech CTO, HR Manager, Management Consultant
+- **5 Interview Personas**: MIT Admissions Officer, Finance Broker, Tech CTO, HR Manager, Management Consultant
 - **Real-time AI Responses**: Lifelike interactions that feel like actual interviews
-- **Instant Feedback**: Get detailed performance analysis after each interview
-- **No Setup Required**: Bring your own OpenRouter API key and start immediately
-- **Free to Use**: No backend charges, just use your own API credits
-- **Completely Private**: Your data never leaves your browser
+- **Instant Feedback**: Detailed performance analysis after each interview
+- **Privacy-First**: Your API key stays in your browser, never on our servers
+- **Zero Backend Costs**: Use your own OpenRouter API credits
+- **No Sign-up Required**: Bring your own API key and start immediately
 
-## 🚀 Quick Start
+## Quick Start
 
-### 1. Get an API Key
+### Step 1: Get an API Key
 
-Visit [OpenRouter.ai](https://openrouter.ai) and:
-1. Sign up (free)
-2. Go to [Keys](https://openrouter.ai/keys)
-3. Create a new API key
-4. Copy it (starts with `sk-or-v1-`)
+1. Visit [OpenRouter.ai](https://openrouter.ai)
+2. Sign up (free account available)
+3. Navigate to [API Keys](https://openrouter.ai/keys)
+4. Create a new API key
+5. Copy your key (starts with `sk-or-v1-`)
 
-### 2. Start an Interview
+### Step 2: Start an Interview
 
-1. Visit [AI Mock Interview](https://ai-mock-interview.vercel.app)
-2. Paste your API key
+1. Visit the application
+2. Paste your OpenRouter API key
 3. Select an interview type
 4. Answer questions naturally
-5. Get feedback at the end
+5. Get detailed feedback at the end
 
-## 📋 Interview Types
+## Interview Types
 
-| Type | Company | Difficulty | Focus |
-|------|---------|-----------|-------|
-| MIT Admissions | MIT | Advanced | Intellectual curiosity, problem-solving |
-| Finance Broker | Goldman Sachs | Advanced | Market knowledge, deal experience |
-| Tech CTO | Startup | Advanced | Technical depth, system design |
-| HR Manager | Tech Company | Intermediate | Behavioral, cultural fit |
-| Consultant | McKinsey | Advanced | Case studies, analytical thinking |
+| Type | Company Style | Difficulty | Focus Areas |
+|------|---------------|-----------|-------------|
+| **Admissions** | MIT | Advanced | Intellectual curiosity, problem-solving |
+| **Finance** | Goldman Sachs | Advanced | Market knowledge, deal intuition |
+| **Technical** | Startup | Advanced | System design, technical depth |
+| **Behavioral** | Tech Company | Intermediate | Communication, cultural fit |
+| **Case Study** | McKinsey | Advanced | Analytics, business thinking |
 
-## 🎓 Tips for Success
+## Tips for Success
 
-1. **Be Specific**: Give detailed examples, not generic answers
-2. **Show Your Thinking**: Explain your reasoning and thought process
-3. **Ask Questions**: Real candidates ask clarifying questions
-4. **Be Authentic**: The AI responds better to genuine answers
-5. **Review Feedback**: Read the analysis carefully for improvement areas
+1. **Be Specific** - Provide detailed examples from real experiences
+2. **Show Your Thinking** - Explain your reasoning and approach
+3. **Ask Clarifying Questions** - Real interviewees ask questions
+4. **Be Authentic** - Genuine answers get better AI feedback
+5. **Review Feedback** - Use insights to improve for real interviews
 
-## 🔐 Privacy & Security
+## Privacy & Security
 
-- Your API key is **stored only in your browser** (sessionStorage)
-- Never transmitted to our servers
-- You control your own usage and costs
-- Interviews are not logged or stored
+✅ API key stored only in your browser (sessionStorage)
+✅ Never sent to or stored on our servers
+✅ You control your usage and costs directly
+✅ No interview data is logged or retained
+✅ Each session is completely isolated
 
-## 🛠️ Local Development
+## Local Development
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/ai-mock-interview.git
-cd ai-mock-interview
+# Clone repository
+git clone https://github.com/Xznder1984/AI-Interview.git
+cd AI-Interview
 
 # Create virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
 
-# Create .env file
-echo "FLASK_SECRET_KEY=your-secret-key" > .env
-
-# Run locally
+# Run application
 python src/main.py
 ```
 
-Visit http://localhost:5000 in your browser.
+Visit `http://localhost:5000` in your browser.
 
-## 📦 Tech Stack
+## Technology Stack
 
-- **Backend**: Python Flask (lightweight, simple deployment)
-- **Frontend**: Vanilla JavaScript (no dependencies)
-- **AI**: OpenRouter API (multi-model, reliable)
-- **Deployment**: Vercel (fast, serverless)
-- **Styling**: Modern CSS (responsive, accessible)
+- **Backend**: Python Flask (lightweight, fast deployment)
+- **Frontend**: Vanilla JavaScript (no build tools needed)
+- **AI**: OpenRouter API (multi-model access)
+- **Deployment**: Vercel (serverless, instant scaling)
+- **Styling**: Modern CSS (responsive design)
 
-## 📖 Documentation
+## Documentation
 
-- **[Deployment Guide](DEPLOYMENT.md)** - Deploy your own version
-- **[Local Setup](QUICKSTART.md)** - Run locally for development
-- **[OpenRouter Setup](OPENROUTER_SETUP.md)** - API key configuration
+- [Full README](README.md) - Complete developer documentation
+- [Deployment Guide](DEPLOYMENT.md) - Deploy to production
+- [API Key Guide](API_KEY_GUIDE.md) - Getting your OpenRouter key
+- [Quick Start](QUICKSTART.md) - Fast local setup
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
-**"Invalid API key"**
-- Check that your key starts with `sk-or-v1-`
-- Verify at https://openrouter.ai/keys
+**Issue: "Invalid API key"**
+- Verify key starts with `sk-or-v1-`
+- Check at [OpenRouter Keys](https://openrouter.ai/keys)
+- Confirm key is active (not revoked)
 - Try creating a new key
 
 **"API request failed"**

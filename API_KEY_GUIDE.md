@@ -1,103 +1,114 @@
-# Getting Your OpenRouter API Key
+# OpenRouter API Key Guide
 
 ## Why Do I Need an API Key?
 
-This app uses the OpenRouter API to power realistic AI interviews. OpenRouter acts as a gateway to multiple AI models, letting us use the best models for natural conversation.
+This application uses OpenRouter API to power realistic AI interviews. OpenRouter is a gateway to multiple AI models.
 
-**You provide the API key, not us.** This means:
-✅ You control your costs
-✅ Your data stays private  
-✅ We don't store any of your information
-✅ Free tier available
+**You bring your own API key.** Benefits:
+- ✅ You control your costs
+- ✅ Your data stays in your browser
+- ✅ Free tier available for testing
+- ✅ No sign-up fees
 
-## Step-by-Step Guide
+## Getting Your API Key
 
-### 1. Go to OpenRouter
+### Step 1: Sign Up
 
-Visit **[openrouter.ai](https://openrouter.ai)** in your browser.
+Visit [OpenRouter.ai](https://openrouter.ai)
 
-### 2. Create an Account
+Click "Create Account" and sign up with:
+- Email
+- Google
+- GitHub
 
-- Click **"Create Account"** (top right)
-- Use email, Google, or GitHub to sign up
-- **It's completely free!**
+**It's free!**
 
-### 3. Get Your API Key
+### Step 2: Navigate to Keys
 
 Once logged in:
+1. Click your profile icon (top right)
+2. Select "Keys"
+3. Click "Create Key"
+4. Name it "AI Interview Practice"
+5. Copy your key
 
-1. Click your profile **icon (top right)**
-2. Select **"Keys"** from the dropdown menu
-3. Click **"Create Key"**
-4. Give it a name like "AI Interview Practice"
-5. Copy the key (it starts with `sk-or-v1-`)
+### Step 3: Use Your Key
 
-### 4. Use Your Key
-
-1. Go to [AI Mock Interview](https://ai-mock-interview.vercel.app)
-2. Paste your key into the login box
-3. Click **"Start Interviewing"**
+1. Go to the AI Mock Interview application
+2. Paste your key in the login field
+3. Click "Login"
+4. Start practicing
 
 ## API Key Format
 
-Your key should look like:
+Your key should start with:
 ```
-sk-or-v1-1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6
+sk-or-v1-...
 ```
 
-**⚠️ If it doesn't start with `sk-or-v1-`, you have the wrong key!**
+**If it doesn't start with `sk-or-v1-`, you have the wrong key.**
 
 ## Troubleshooting
 
-### "Invalid API Key"
+### Invalid API Key
 
-Check these things:
+**Check:**
+1. Visit [OpenRouter Keys](https://openrouter.ai/keys)
+2. Copy the full key without extra spaces
+3. Verify it starts with `sk-or-v1-`
+4. Ensure the key is not disabled
 
-1. **Is it the right key?**
-   - Go to https://openrouter.ai/keys
-   - Make sure you copied the full key
-   - It should start with `sk-or-v1-`
+### Insufficient Credits
 
-2. **Did you paste it correctly?**
-   - No extra spaces before or after
-   - Copy directly from the OpenRouter page
+You've used your free credits.
 
-3. **Is the key active?**
-   - Check your OpenRouter dashboard
-   - Disabled keys won't work
+**Solution:**
+- Check [Billing Overview](https://openrouter.ai/account/billing/overview)
+- Free tier includes starter credits
+- After using credits, set up a payment method
+- Or request additional credits
 
-### "Insufficient Credits"
+### Rate Limited
 
-You ran out of free credits. 
+You're sending requests too quickly.
 
-- Check your balance at https://openrouter.ai/account/billing/overview
-- OpenRouter offers a free tier with initial credits
-- After credits run out, you can set up payment
-
-### "Rate Limited"
-
-You're sending requests too fast.
-
+**Solution:**
 - Wait a moment and try again
-- Or check your OpenRouter plan limits
+- Check your OpenRouter plan limits
+- Consider upgrading for higher limits
 
-## Cost Information
+## Cost Breakdown
 
-OpenRouter pricing varies by model:
+OpenRouter pricing by model:
 
-**Free Tier:** 
-- Get initial free credits when you sign up
-- Great for testing
+**Free Tier:**
+- Initial free credits included
+- Perfect for testing
 
-**Paid Plans:**
+**Popular Models:**
 - GPT-3.5 Turbo: ~$0.001 per 1K tokens
 - GPT-4: ~$0.03 per 1K tokens
-- Other models available too
+- Llama 2: Free on free tier
+- Claude 2: Variable pricing
 
-**For Practice:**
-- A typical 10-minute interview uses ~3,000-5,000 tokens
-- With GPT-3.5: costs ~$0.01 per interview
-- Free tier gives you plenty to practice!
+**Typical Practice Interview:**
+- 10-minute interview: 3,000-5,000 tokens
+- GPT-3.5 cost: ~$0.01-$0.05
+- Free tier easily covers multiple practice interviews
+
+## Security Tips
+
+- Treat your API key like a password
+- Never share it with anyone
+- Revoke keys you're not using
+- Monitor your usage regularly
+- Set spending limits if available
+
+## Support
+
+- [OpenRouter Docs](https://openrouter.ai/docs)
+- [Report Issues](https://github.com/Xznder1984/AI-Interview/issues)
+- Contact: xander.razeralbarr@gmail.com
 
 ## Security Notes
 

@@ -1,110 +1,111 @@
-# Deployment Guide: GitHub + Vercel
+# Deployment Guide
 
-This guide walks you through deploying AI Mock Interview to GitHub and Vercel for public access.
+Deploy AI Mock Interview to Vercel for public access in minutes.
 
 ## Prerequisites
 
-- GitHub account (free at https://github.com)
-- Vercel account (free at https://vercel.com)
-- Git installed on your computer
+- GitHub account ([free signup](https://github.com))
+- Vercel account ([free signup](https://vercel.com))
+- Git installed locally
 
-## Step 1: Prepare Your Local Repository
+## Step 1: Prepare Your Repository
 
-### 1.1 Initialize Git (if not already done)
+### Initialize Git (if needed)
 
 ```bash
-cd ai_phone
+cd AI-Interview
 git init
 git add .
 git commit -m "Initial commit: AI Mock Interview app"
 ```
 
-### 1.2 Update .env for Production
+### Environment Configuration
 
-The `.env` file is in `.gitignore` and will NOT be committed to GitHub. This is intentional for security.
+The `.env` file is in `.gitignore` and will NOT be committed. This is intentional for security.
 
-For your local development, you can keep your `.env` file as-is:
+For local development:
 ```
-FLASK_SECRET_KEY=your-secret-key
+FLASK_SECRET_KEY=your-secret-key-here
 ```
 
-Users won't need a `.env` file - they'll provide their OpenRouter API key directly in the web form.
+Users won't need `.env` — they provide their OpenRouter API key directly in the web form.
 
 ## Step 2: Push to GitHub
 
-### 2.1 Create a GitHub Repository
+### Create GitHub Repository
 
-1. Go to https://github.com/new
-2. Create a repository named `ai-mock-interview`
-3. Do NOT initialize with README, .gitignore, or license (we already have these)
-4. Copy the repository URL
+1. Go to [github.com/new](https://github.com/new)
+2. Name it `AI-Interview`
+3. Skip initializing with README/gitignore (already exist)
+4. Copy your repository URL
 
-### 2.2 Add Remote and Push
+### Push Your Code
 
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/ai-mock-interview.git
+git remote add origin https://github.com/YOUR_USERNAME/AI-Interview.git
 git branch -M main
 git push -u origin main
 ```
 
 ## Step 3: Deploy to Vercel
 
-### 3.1 Connect to Vercel
+### Connect Repository
 
-1. Go to https://vercel.com/dashboard
+1. Go to [Vercel Dashboard](https://vercel.com/dashboard)
 2. Click "New Project"
 3. Select "Import Git Repository"
-4. Choose your `ai-mock-interview` repository
+4. Select your `AI-Interview` repository
 5. Click "Import"
 
-### 3.2 Configure Project Settings
+### Configure Settings
 
-**Framework Preset:** Other (Flask)
+**Framework:** Other (Flask)
 
-**Build Command:** (Leave empty or use `pip install -r requirements.txt`)
+**Build Command:** Leave empty
 
 **Output Directory:** Leave empty
 
-**Environment Variables:** 
-- Add `FLASK_SECRET_KEY`: Generate a secure value and paste it
-- Do NOT add `OPENROUTER_API_KEY` - users provide this via web form
+**Environment Variables:**
+- `FLASK_SECRET_KEY`: Enter a secure value
+- Do NOT add `OPENROUTER_API_KEY` (users provide this via form)
 
-### 3.3 Deploy
+### Deploy
 
-Click "Deploy" and wait for the build to complete.
+Click "Deploy" and wait for build completion.
 
-Your app will be available at: `https://ai-mock-interview.vercel.app` (or your custom domain)
+Your live app: `https://YOUR-PROJECT-NAME.vercel.app`
 
-## Step 4: Share with Users
+## Step 4: Share Your App
 
-Your app is now public! Share the link with others:
+Your application is now public! Share the link:
 
 ```
-https://ai-mock-interview.vercel.app
+https://YOUR-PROJECT-NAME.vercel.app
 ```
 
 Users can:
 1. Visit the site
-2. Get a free OpenRouter API key at https://openrouter.ai
-3. Paste their key into the login form
-4. Start practicing interviews
+2. Get free OpenRouter API key at [openrouter.ai](https://openrouter.ai)
+3. Paste their API key
+4. Start interviewing
 
 ## Updating Your Deployment
 
-### Make Changes Locally
+### Make Local Changes
+
 ```bash
-# Edit files locally
+# Edit files
 git add .
-git commit -m "Describe your changes"
+git commit -m "Update feature"
 git push origin main
 ```
 
-Vercel will automatically rebuild and redeploy your changes.
+Vercel automatically rebuilds on each push.
 
-### Update Python Dependencies
-If you add new packages:
+### Update Dependencies
+
 ```bash
-pip install new_package
+pip install package_name
 pip freeze > requirements.txt
 git add requirements.txt
 git commit -m "Update dependencies"
@@ -113,41 +114,38 @@ git push origin main
 
 ## Troubleshooting
 
-### Build Fails on Vercel
-- Check build logs in Vercel dashboard
-- Verify `requirements.txt` has all dependencies
-- Ensure `src/main.py` exists and is correct
+| Problem | Solution |
+| --- | --- |
+| **Build fails** | Check Vercel build logs, verify requirements.txt |
+| **404 errors** | Verify vercel.json routing, check src/main.py exists |
+| **API key rejected** | User needs valid OpenRouter key from openrouter.ai |
+| **Slow responses** | Check OpenRouter status, verify API credits available |
 
-### App Shows 404 Error
-- Verify `vercel.json` routing configuration
-- Check that `templates/` and `static/` folders are included
+## Security Best Practices
 
-### API Calls Fail with 401
-- User has invalid API key format
-- User hasn't set up OpenRouter account
-- Direct users to https://openrouter.ai/keys
-
-## Security Notes
-
-✅ **Good Security:**
-- API key is entered by user in their browser (sessionStorage)
-- Never transmitted to our servers
+✅ **What's Secure:**
+- Users enter API keys in browser (never sent to backend)
+- Keys stored in sessionStorage only
 - Each request includes user's own API key
-- No backend secrets stored
+- No backend API key storage
 
-⚠️ **What Users Should Know:**
-- Their API key is stored in browser sessionStorage
-- Clearing browser data will clear the key
-- The key is never stored on our servers
-- They control their own usage/costs
+✅ **User Should Know:**
+- API key clears when closing browser
+- Treat API keys like passwords
+- Monitor usage at openrouter.ai
+- Revoke keys if compromised
 
 ## Custom Domain (Optional)
 
-To use a custom domain with Vercel:
+1. Vercel Dashboard → Settings → Domains
+2. Add your custom domain
+3. Update DNS records per Vercel instructions
 
-1. In Vercel Dashboard → Settings → Domains
-2. Add your domain
-3. Update DNS records as instructed
+## Support
+
+- [Vercel Docs](https://vercel.com/docs)
+- [Flask Deployment](https://flask.palletsprojects.com/deployment/)
+- [Report Issues](https://github.com/Xznder1984/AI-Interview/issues)
 4. SSL certificate is automatic
 
 ## Next Steps
