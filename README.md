@@ -7,114 +7,153 @@
 [![Python](https://img.shields.io/badge/Python-3.8+-blue)](#prerequisites)
 [![Flask](https://img.shields.io/badge/Flask-3.0+-blue)](#tech-stack)
 
-## Overview
+---
 
-AI Mock Interview is a modern web application that enables users to practice interviews with AI-powered professional interviewers. Built with Flask and vanilla JavaScript, it features **zero backend secrets** — users bring their own OpenRouter API keys, ensuring complete privacy and control.
+## 📌 Overview
 
-### Highlights
+AI Mock Interview is a modern web application that enables users to practice interviews with AI-powered professional interviewers. Built with **Flask** and **vanilla JavaScript**, it features **zero backend secrets** — users bring their own OpenRouter API keys, ensuring complete privacy and control.
 
-- 🎯 **5 Interview Personas**: MIT Admissions Officer, Finance Broker, Tech CTO, HR Manager, Management Consultant
-- 🤖 **Real-time AI Responses**: Natural, human-like interactions powered by OpenRouter API
-- 📊 **Instant Feedback**: Detailed performance analysis and transcript after each interview
-- 🔐 **Privacy-First**: API keys stored only in user's browser, never on servers
-- 💰 **Zero Backend Costs**: Users manage their own API usage and costs
-- 🎨 **Modern UI**: Responsive, intuitive interface with real-time chat
+Perfect for job seekers, students, and professionals preparing for:
 
-## Quick Start
+- College admissions interviews
+- Investment banking interviews
+- Tech interviews
+- Behavioral interviews
+- Case study interviews
+
+---
+
+## ✨ Key Features
+
+**🎯 5 Interview Personas**
+- MIT Admissions Officer (College Admissions)
+- Finance Broker from Goldman Sachs (Investment Banking)
+- Tech CTO from Startup (Software Engineering)
+- HR Manager (Behavioral)
+- McKinsey Senior Consultant (Case Study)
+
+**🤖 Real-time AI Responses**
+- Natural, human-like interactions
+- Powered by OpenRouter API
+- Context-aware follow-up questions
+
+**📊 Instant Feedback**
+- Detailed performance analysis
+- Complete interview transcript
+- Downloadable report
+
+**🔐 Privacy-First Design**
+- API keys stored only in user's browser
+- Never stored on servers
+- No data collection
+
+**💰 Zero Backend Costs**
+- Users manage their own API usage
+- Pay only for what you use
+- Free tier available with OpenRouter
+
+**🎨 Modern, Responsive UI**
+- Intuitive interface
+- Real-time chat
+- Mobile-friendly design
+
+---
+
+## 🚀 Quick Start
 
 ### Prerequisites
 
-- Python 3.8+
+- Python 3.8 or higher
 - Git
-- OpenRouter API key ([free signup](https://openrouter.ai))
+- OpenRouter API key (free at [openrouter.ai](https://openrouter.ai))
 
 ### Installation
 
 ```bash
-# Clone repository
+# Clone the repository
 git clone https://github.com/Xznder1984/AI-Interview.git
 cd AI-Interview
 
-# Create virtual environment
+# Create a virtual environment
 python -m venv venv
-source venv/bin/activate  # macOS/Linux
-# or
-venv\Scripts\activate  # Windows
+
+# Activate virtual environment (Windows)
+venv\Scripts\activate
+
+# Activate virtual environment (macOS/Linux)
+source venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
 
-# Run locally
+# Run the application
 python src/main.py
 ```
 
-Open `http://localhost:5000` in your browser.
+Visit **http://localhost:5000** in your browser to get started.
 
-## How It Works
+---
 
-### User Flow
+## 💡 How It Works
 
-1. **Login**: User pastes their OpenRouter API key
-   - Key stored in browser sessionStorage (never sent to server)
-   - Validated for correct format
+### User Journey
 
-2. **Select Interview**: Choose from 5 personas
-   - MIT Admissions Officer
-   - Finance Broker (Goldman Sachs style)
-   - Tech CTO (Startup)
-   - HR Manager (Behavioral)
-   - Management Consultant (McKinsey style)
+**1. Login with API Key**
+- Paste your OpenRouter API key
+- Key is stored securely in your browser (sessionStorage)
+- Key is never sent to our servers
 
-3. **Practice**: Respond naturally to interview questions
-   - AI provides real-time responses
-   - Interview timer tracks duration
-   - Full conversation history maintained
+**2. Select Interview Type**
+Choose from 5 professional interviewers:
+- MIT Admissions Officer
+- Goldman Sachs Finance Broker
+- Tech Startup CTO
+- Corporate HR Manager
+- McKinsey Management Consultant
 
-4. **Get Feedback**: Instant performance analysis
-   - Strengths and improvement areas
-   - Complete interview transcript
-   - Downloadable feedback report
+**3. Practice Interview**
+- Answer realistic interview questions
+- Receive real-time AI responses
+- Interview timer tracks your performance
+- Full conversation history maintained
 
-### Architecture
+**4. Review Your Performance**
+- Get instant, detailed feedback
+- Identify strengths and improvement areas
+- Download complete transcript
+- Practice as many times as you want
 
-The application uses a **stateless, privacy-first architecture**:
+### 🏗️ Architecture
+
+Our application uses a **stateless, privacy-first design**:
 
 ```
-User's Browser (sessionStorage)
+Your Browser (sessionStorage: API Key)
     ↓
-    └─ Stores API key (never sent to backend)
-    
-REST API (Flask)
+Flask REST API (Receives X-API-Key header)
     ↓
-    ├─ Extracts X-API-Key from request header
-    ├─ Validates key format
-    └─ Never logs or stores the key
-    
-Interview Engine
+Interview Engine (Uses YOUR API key)
     ↓
-    └─ Uses user's API key for OpenRouter calls
-    
-OpenRouter API
-    ↓
-    └─ User authenticates with their own credentials
-    └─ User pays for their usage only
+OpenRouter API (YOU authenticate with YOUR key)
 ```
 
-**Key Principle**: No API keys stored on servers. Each request includes the user's key in the `X-API-Key` header.
+**Core Principle**: Your API key never touches our servers. Each request includes your key in the header for direct authentication.
 
-## Features
+---
 
-### Interview Personas
+## 🎯 Interview Personas
 
 | Persona | Company | Type | Difficulty |
-|---------|---------|------|------------|
+| --- | --- | --- | --- |
 | Dr. Sarah Chen | MIT | College Admission | Advanced |
 | James Mitchell | Goldman Sachs | Investment Banking | Advanced |
 | Alex Rivera | Startup | Technical | Advanced |
 | Lisa Patel | General | Behavioral | Intermediate |
 | Michael Torres | McKinsey | Case Study | Advanced |
 
-### Technology Stack
+---
+
+## 🏢 Tech Stack
 
 - **Backend**: Flask 3.0+ (Python)
 - **Frontend**: Vanilla JavaScript (no build tools)
@@ -122,38 +161,34 @@ OpenRouter API
 - **Styling**: Modern CSS with responsive design
 - **Deployment**: Vercel (serverless)
 
-## Configuration
+---
 
-### Environment Variables
-
-Optional `.env` file for local development:
+## 📁 File Structure
 
 ```
-FLASK_SECRET_KEY=your-secret-key-here
+AI-Interview/
+├── src/
+│   ├── main.py                # Application entry point
+│   ├── app.py                 # Flask routes (REST API)
+│   └── interview_engine.py     # AI logic & personas
+├── templates/
+│   └── index.html             # Single-page application
+├── static/
+│   ├── script.js              # Frontend logic
+│   └── style.css              # Styling & responsive design
+├── requirements.txt           # Python dependencies
+├── .env.example               # Environment variables template
+├── .gitignore                 # Git configuration
+├── vercel.json                # Vercel deployment config
+├── README.md                  # This file
+├── DEPLOYMENT.md              # Deployment guide
+├── API_KEY_GUIDE.md           # Getting OpenRouter API keys
+└── QUICKSTART.md              # Quick setup reference
 ```
 
-For production (Vercel):
-- Set `FLASK_SECRET_KEY` in Vercel project settings
-- Users provide API key via web form (not in .env)
+---
 
-### OpenRouter API
-
-The app uses OpenRouter to access multiple AI models:
-
-```python
-# Default model
-openai/gpt-3.5-turbo
-
-# Can be customized to:
-openai/gpt-4
-anthropic/claude-2
-llama-2-70b
-# ... and many others
-```
-
-Visit [OpenRouter Models](https://openrouter.ai/docs/models) for available options.
-
-## Security
+## 🔐 Security
 
 ### API Key Protection
 
@@ -170,14 +205,26 @@ Visit [OpenRouter Models](https://openrouter.ai/docs/models) for available optio
 ✅ Interview conversations not retained
 ✅ User data stays in browser
 
-### What Users Should Know
+### How It Works
+
+1. User enters API key in login form
+2. Frontend validates format (must start with `sk-or-v1-`)
+3. Key stored in browser sessionStorage only
+4. All API requests include X-API-Key header
+5. Backend validates, never stores the key
+6. Key used with OpenRouter for AI responses
+7. Session cleared when browser closes
+
+### Important for Users
 
 ⚠️ Treat API keys like passwords — never share them
 ⚠️ Monitor usage at openrouter.ai
 ⚠️ Revoke keys if compromised
-⚠️ Free tier available for testing
+⚠️ Use free tier for testing
 
-## Deployment
+---
+
+## 🚀 Deployment
 
 ### Local Development
 
@@ -191,37 +238,35 @@ python src/main.py
 
 1. Push code to GitHub
 2. Connect repository to Vercel
-3. Set environment variables (FLASK_SECRET_KEY)
+3. Set environment variable: `FLASK_SECRET_KEY`
 4. Deploy (automatic on push)
 
 See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions.
 
-## File Structure
+---
 
-```
-AI-Interview/
-├── src/
-│   ├── main.py              # Application entry point
-│   ├── app.py               # Flask routes (REST API)
-│   └── interview_engine.py   # AI logic & personas
-├── templates/
-│   └── index.html           # Single-page app
-├── static/
-│   ├── script.js            # Frontend logic
-│   └── style.css            # Styling
-├── requirements.txt         # Python dependencies
-├── .env.example             # Environment template
-├── .gitignore               # Git configuration
-├── vercel.json              # Vercel deployment config
-├── README.md                # This file
-├── DEPLOYMENT.md            # Deployment guide
-├── API_KEY_GUIDE.md         # Getting OpenRouter keys
-└── QUICKSTART.md            # Quick setup reference
-```
+## 🧪 Testing
 
-## Development
+### Manual Testing Checklist
 
-### Adding a New Persona
+- Login with valid API key
+- Login with invalid key (should show error)
+- Select each of 5 personas
+- Complete sample interview (3+ exchanges)
+- Download feedback file
+- Logout and re-login
+- Check browser console (F12) for errors
+- Test on mobile browser
+
+### Get a Test API Key
+
+Visit https://openrouter.ai to sign up and get a free API key.
+
+---
+
+## 🎨 Customization
+
+### Add New Interview Persona
 
 Edit `src/interview_engine.py`:
 
@@ -241,59 +286,57 @@ NEW_PERSONA = InterviewPersona(
 )
 ```
 
-### Customizing the UI
+### Change Default AI Model
 
-Edit `templates/index.html` and `static/style.css`. Uses CSS variables:
+In `src/interview_engine.py`:
+
+```python
+self.model = model or "openai/gpt-4"  # Change from gpt-3.5-turbo
+```
+
+Available models: https://openrouter.ai/docs
+
+### Customize UI Theme
+
+Edit CSS variables in `static/style.css`:
 
 ```css
 --primary-color: #3b82f6;
 --secondary-color: #10b981;
 --danger-color: #ef4444;
+--text-dark: #111827;
+--text-light: #6b7280;
 ```
 
-### Improving AI Responses
+---
 
-Edit the `system_prompt` in persona definitions. Current approach emphasizes:
-- Natural language patterns
-- Personality and humor
-- Interview techniques
-- Realistic constraints
-
-## Testing
-
-### Manual Testing
-
-1. Use real OpenRouter API key
-2. Test each persona
-3. Complete sample interview (3+ exchanges)
-4. Verify feedback generation
-5. Test download functionality
-
-### Browser Console
-
-Check JavaScript errors:
-- Open DevTools (F12)
-- Check Console tab
-- Network tab for API calls
-
-## Troubleshooting
+## 🐛 Troubleshooting
 
 | Issue | Solution |
-|-------|----------|
+| --- | --- |
 | Flask won't start | Install requirements: `pip install -r requirements.txt` |
-| Invalid API key | Verify format starts with `sk-or-v1-` |
-| Slow responses | Check internet, verify OpenRouter operational |
-| API calls fail | Verify OpenRouter account has credits |
-| Vercel build fails | Check `vercel.json` and dependencies |
+| Invalid API key error | Verify format starts with `sk-or-v1-` at openrouter.ai/keys |
+| Slow API responses | Check internet, verify OpenRouter is operational |
+| Module not found error | Activate virtual environment, run `pip install -r requirements.txt` |
+| CORS errors | Flask-CORS is configured; check browser console for details |
+| Vercel build fails | Check `vercel.json` and ensure all required files present |
 
-## Performance
+---
 
-- **Load Time**: < 2 seconds
-- **API Response**: 1-5 seconds (depends on model)
-- **Scalability**: Unlimited (serverless)
-- **Uptime**: 99.95% (Vercel SLA)
+## 📦 Dependencies
 
-## Contributing
+**Python packages (requirements.txt):**
+- Flask 3.0.0 - Web framework
+- python-dotenv 1.0.0 - Environment variables
+- requests 2.31.0 - HTTP requests
+- Flask-CORS 4.0.0 - Cross-origin requests
+
+**Frontend:**
+- Zero dependencies! Pure HTML/CSS/JavaScript
+
+---
+
+## 📝 Contributing
 
 Contributions welcome! To contribute:
 
@@ -314,11 +357,23 @@ Contributions welcome! To contribute:
 - Internationalization
 - Documentation improvements
 
-## License
+---
 
-MIT License - feel free to use, modify, and share. See [LICENSE](LICENSE) file for details.
+## 📄 License
 
-## Support
+MIT License - feel free to use, modify, and share for commercial or personal projects.
+
+---
+
+## 🙏 Credits
+
+- [OpenRouter.ai](https://openrouter.ai) - Multi-model AI API gateway
+- [Vercel](https://vercel.com) - Serverless deployment platform
+- [Flask](https://flask.palletsprojects.com) - Web framework
+
+---
+
+## 📧 Contact & Support
 
 - 📖 [API Key Guide](API_KEY_GUIDE.md) - Getting started with OpenRouter
 - 🚀 [Deployment Guide](DEPLOYMENT.md) - Deploy to production
@@ -326,224 +381,8 @@ MIT License - feel free to use, modify, and share. See [LICENSE](LICENSE) file f
 - 🐛 [Issues](https://github.com/Xznder1984/AI-Interview/issues) - Report bugs
 - 💬 [Discussions](https://github.com/Xznder1984/AI-Interview/discussions) - Ask questions
 
-## Acknowledgments
-
-- [OpenRouter.ai](https://openrouter.ai) - Multi-model AI API gateway
-- [Vercel](https://vercel.com) - Serverless deployment platform
-- [Flask](https://flask.palletsprojects.com) - Web framework
-
-## Contact
-
-- Email: xander.razeralbarr@gmail.com
-- GitHub: [@Xznder1984](https://github.com/Xznder1984)
-
 ---
 
 **Made with ❤️ to help you ace your interviews**
 
-[Start Practicing](http://localhost:5000) | [GitHub](https://github.com/Xznder1984/AI-Interview) | [Report Issue](https://github.com/Xznder1984/AI-Interview/issues)
-
-1. **User enters key in login form**
-   - Frontend validates format (must start with `sk-or-v1-`)
-   - User sees clear instructions where to get key
-
-2. **Key stored in sessionStorage**
-   ```javascript
-   sessionStorage.setItem('openrouter_api_key', apiKey)
-   ```
-   - Only in user's browser
-   - Cleared when tab closes
-   - NOT in localStorage (would persist)
-   - NOT in cookies (would be sent to every request)
-
-3. **Key included in requests**
-   ```javascript
-   fetch('/api/interview/respond', {
-       headers: {
-           'X-API-Key': this.apiKey  // User's key from sessionStorage
-       }
-   })
-   ```
-
-4. **Backend receives and validates**
-   ```python
-   @require_api_key  # Extracts X-API-Key
-   def respond_to_interview(api_key):  # Passed as parameter
-       # Verify matches session's original key
-       if session_data["api_key"] != api_key:
-           return error
-   ```
-
-5. **Used with OpenRouter**
-   ```python
-   headers = {
-       "Authorization": f"Bearer {api_key}"  # User's key
-   }
-   # OpenRouter authenticates against user's account
-   ```
-
-6. **Never logged or stored**
-   - No database storage
-   - Not in Flask logs
-   - Not in response bodies
-   - Session cleaned up after interview
-
-### Threat Model
-
-| Threat | Mitigation |
-|--------|-----------|
-| Server compromise | No API keys on server to steal |
-| Network sniffing | Uses HTTPS in production |
-| Browser malware | Can access sessionStorage (unavoidable) |
-| User shares key | User's responsibility (like passwords) |
-| Rate limiting bypass | OpenRouter enforces limits |
-| Cost abuse | Limited by OpenRouter quotas |
-
-## 🧪 Testing
-
-### Manual Testing Checklist
-
-- [ ] Login with valid API key
-- [ ] Login with invalid key (should show error)
-- [ ] Select each of 5 personas
-- [ ] Complete sample interview (3+ exchanges)
-- [ ] Download feedback file
-- [ ] Logout and re-login
-- [ ] Check browser console (F12) for errors
-- [ ] Test on mobile browser
-- [ ] Test with slow network (DevTools throttle)
-
-### Test API Key
-
-Visit https://openrouter.ai to get a free test key.
-
-## 📦 Dependencies
-
-**Python (requirements.txt):**
-```
-Flask==3.0.0           # Web framework
-python-dotenv==1.0.0   # Environment variables
-requests==2.31.0       # HTTP requests
-Flask-CORS==4.0.0      # Cross-origin requests
-```
-
-**Frontend:**
-- Zero dependencies! Pure HTML/CSS/JavaScript
-
-## 🚀 Deployment Paths
-
-### Local Development
-```bash
-python src/main.py
-# http://localhost:5000
-```
-
-### Vercel (Production)
-See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed steps.
-
-Quick version:
-1. Push to GitHub
-2. Import to Vercel
-3. Set FLASK_SECRET_KEY in environment
-4. Deploy (automatic on push)
-
-## 🎨 Customization
-
-### Add Interview Persona
-
-In `src/interview_engine.py`, add to `InterviewPersonaLibrary`:
-
-```python
-CUSTOM_PERSONA = InterviewPersona(
-    id="custom",
-    name="Your Name",
-    title="Job Title",
-    company="Company",
-    emoji="🎯",
-    description="Short description",
-    system_prompt="""You are...
-    [Detailed instructions for natural, realistic interviewing]
-    """
-)
-```
-
-### Change Default AI Model
-
-In `src/interview_engine.py`:
-```python
-self.model = model or "openai/gpt-4"  # Was gpt-3.5-turbo
-```
-
-Available models: https://openrouter.ai/docs
-
-### Customize UI
-
-Edit `templates/index.html` and `static/style.css`.
-
-CSS variables available:
-```css
---primary-color: #3b82f6;
---secondary-color: #10b981;
---danger-color: #ef4444;
---text-dark: #111827;
---text-light: #6b7280;
-```
-
-## 🐛 Troubleshooting
-
-| Issue | Solution |
-|-------|----------|
-| Flask won't start | Check Python 3.8+, run `pip install -r requirements.txt` |
-| "Invalid API key" error | Verify key starts with `sk-or-v1-`, check at openrouter.ai/keys |
-| API calls are slow | Check internet connection, verify OpenRouter is operational |
-| "Module not found" error | Activate venv, install requirements |
-| CORS errors | Flask-CORS is configured, check browser console |
-| Vercel build fails | Check vercel.json, ensure all files present |
-
-## 💡 Performance Tips
-
-- Use GPT-3.5-turbo for speed, GPT-4 for quality
-- Consider caching persona list
-- Implement message pagination for long interviews
-- Add IndexedDB for offline support (future)
-
-## 📝 Contributing
-
-1. Fork repository
-2. Create feature branch
-3. Make improvements
-4. Test thoroughly
-5. Submit pull request
-
-### Ideas for Contributions
-- Additional interview personas
-- Better system prompts
-- UI/UX improvements
-- Performance optimizations
-- Internationalization
-- Documentation improvements
-
-## 📄 License
-
-MIT License - Use freely for commercial/personal projects
-
-## 🙏 Credits
-
-- [OpenRouter.ai](https://openrouter.ai) - AI model gateway
-- [Vercel](https://vercel.com) - Deployment platform
-- [Flask](https://flask.palletsprojects.com) - Web framework
-- All contributors
-
-## 📧 Support
-
-- Issues? → GitHub Issues
-- Questions? → Start a Discussion
-- Features? → GitHub Discussions
-
----
-
-**Happy coding!** 🚀 Questions? Create an issue or PR!
-#   A I - I n t e r v i e w 
- 
- #   A I - I n t e r v i e w  
- 
+[Start Practicing](http://localhost:5000) | [GitHub Repository](https://github.com/Xznder1984/AI-Interview) | [Report Issue](https://github.com/Xznder1984/AI-Interview/issues)
