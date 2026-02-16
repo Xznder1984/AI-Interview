@@ -1,63 +1,23 @@
-# 🔑 OpenRouter API Key Guide
+# API Key Guide
 
-Get your free API key and start practicing interviews.
+This app requires users to provide their own OpenRouter API key. The app never stores your key on the server — the key is kept in your browser session and sent with each request.
 
----
+How it works
 
-## Why Do I Need an API Key?
+- The frontend stores the key in `sessionStorage`.
+- The frontend sends the key in the `X-API-Key` header on every request.
+- The backend uses the header value for the OpenRouter call and does not persist it.
 
-This application uses OpenRouter API to power realistic AI interviews. OpenRouter is a gateway to multiple high-quality AI models.
+How to use
 
-**You bring your own API key.** This means:
+1. Open the app in your browser.
+2. Paste your OpenRouter API key into the prompt when requested.
+3. Start an interview.
 
-- ✅ You control your costs
-- ✅ Your data stays in your browser
-- ✅ Free tier available for testing
-- ✅ No hidden fees or sign-up costs
+Security notes
 
----
-
-## Getting Your API Key (3 steps)
-
-### Step 1: Sign Up
-
-Visit [OpenRouter.ai](https://openrouter.ai)
-
-Sign up with:
-- Email
-- Google
-- GitHub
-
-It's completely free!
-
-### Step 2: Create API Key
-
-Once logged in:
-
-1. Click profile icon (top right)
-2. Select "Keys"
-3. Click "Create Key"
-4. Name it "AI Interview Practice"
-5. Copy your key
-
-### Step 3: Use Your Key
-
-1. Visit the AI Mock Interview app
-2. Paste your key in login form
-3. Click "Login"
-4. Select a persona and start practicing
-
----
-
-## Verify Your Key Format
-
-Your key should look exactly like this:
-
-```
-sk-or-v1-xxxxxxxxxxxxxxxxxxxxxxxxxxxx
-```
-
-⚠️ If it doesn't start with `sk-or-v1-`, you have the wrong key.
+- Do not paste keys from accounts you cannot revoke.
+- The server does not log or save your key.
 
 ---
 

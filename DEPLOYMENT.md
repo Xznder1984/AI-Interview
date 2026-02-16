@@ -202,4 +202,17 @@ As traffic grows:
 
 ---
 
+# Deployment (Vercel)
+
+1. Push your repository to GitHub.
+2. Sign in to Vercel and import the repository.
+3. Set the environment variable `FLASK_SECRET_KEY` in Vercel.
+4. Deploy — Vercel will build and publish your site.
+
+Notes:
+- Do NOT add your OpenRouter API key to Vercel environment variables; users provide it in the app.
+- For troubleshooting, check Vercel build logs.
+
+---
+
 Questions? Check the [README](README.md) or [Quick Start](QUICKSTART.md)
